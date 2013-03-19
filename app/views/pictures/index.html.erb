@@ -1,1 +1,9 @@
-<h1> Hello</h1>
+<h1>Photogur</h1>
+
+<%- @pictures.each do |i| %>
+	<p><%=i[:title]%>, <%=i[:artist]%></p>
+	<img src="<%=i[:url]%>">
+<% end %> 
+
+
+

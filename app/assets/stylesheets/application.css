@@ -11,3 +11,27 @@
  *= require_self
  *= require_tree .
  */
+
+.container {
+	width: 600px;
+	margin: auto;
+}
+
+ img {
+ 	width: 80%;
+ 	opacity: 0.8;
+ }
+
+ img:hover {
+ 	opacity: 1;
+ 	cursor: pointer;
+ }
+
+h1 {
+	font-family: serif;
+}
+
+p {
+	color: gray;
+	font-family: helvetica, sans-serif;
+}
