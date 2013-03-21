@@ -1,8 +1,26 @@
 Photogur::Application.routes.draw do
+  root :to => 'pictures#index'           # the '/' => makes it the home index, same thing as root
 
-  get 'pictures' => 'pictures#index'
+  resources :pictures
 
-  get 'pictures/:id' => 'pictures#show'
+
+# the order matters, rails will read the routs in order of below
+
+  # get 'pictures' => 'pictures#index'
+
+  
+  # get 'pictures/:id/edit' => 'pictures#edit'
+  # post 'pictures/:id' => 'pictures#update'    # what you set here is what we want the url to look like, you want the update to go to /id not /id/edit
+
+  # get 'pictures/new' => 'pictures#new'
+  # post 'pictures' => 'pictures#create'
+
+  # #get/post route => controller#action
+
+  # get 'pictures/:id' => 'pictures#show'    #this says whatever is after the / is what is being get
+
+end
+
 
 
 
@@ -61,5 +79,4 @@ Photogur::Application.routes.draw do
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
-  # match ':controller(/:action(/:id))(.:format)'
-end
+  # match ':controller(/:action(/:id))(.:format)

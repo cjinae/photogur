@@ -1,0 +1,24 @@
+<h1> Edit Picture </h1>
+
+<form action ="/pictures/ <%= @picture.id %>" method = "POST">
+
+	<p>
+		<lable>Edit Artist</lable><br>
+		<input type = "text" name = "artist" value="<%= @picture.artist %>"/>
+	</p>
+
+	<p>
+		<lable>Edit Title</lable><br>
+		<input type = "text" name = "title" value="<%= @picture.title %>"/>
+	</p>
+
+	<p>
+		<lable>Edit URL</lable><br>
+		<input type = "text" name = "url" value="<%= @picture.url %>"/>
+	</p>
+
+	<p>
+		<input type = "submit"/>
+	</p>
+
+</form>

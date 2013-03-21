@@ -1,9 +1,14 @@
 <h1>Photogur</h1>
 
-<%- @pictures.each do |i| %>
-	<p><%=i[:title]%>, <%=i[:artist]%></p>
-	<img src="<%=i[:url]%>">
+<%- @pictures.each do |picture| %>
+	<p><%=picture.title%>, <%=picture.artist%></p>
+	<a href ="<%=picture.url%>"><img src="<%=picture.url%>"></a>
+
 <% end %> 
 
 
+<!-- calling Pictures.all 
+the .all function is what makes the pictures return to us as an array. It collects 
+all the information and returns it to us in array format
+ -->
 
