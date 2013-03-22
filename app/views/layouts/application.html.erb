@@ -4,12 +4,20 @@
   <title>Photogur, by Christine and Tom</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
+  <link href='http://fonts.googleapis.com/css?family=Inder' rel='stylesheet' type='text/css'>
   <%= csrf_meta_tags %>
 </head>
 <body>
 	<div class="container">
-
-<%= yield %>
+		<div class = "nav">
+			<ul>
+				<li><%= link_to "Home", pictures_path %></li>
+				<li><%= link_to "New Picture", new_picture_path %></li>
+				<li><%= link_to "Home", pictures_path %></li>
+			</ul>
+		</div>		
+		<%= yield %>    <!-- the yield tag calls all the html.erb views -->
+	
 	</div>
 </body>
 </html>

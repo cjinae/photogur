@@ -1,9 +1,16 @@
 <h1>Photogur</h1>
 
-<%- @pictures.each do |picture| %>
-	<p><%=picture.title%>, <%=picture.artist%></p>
-	<a href ="<%=picture.url%>"><img src="<%=picture.url%>"></a>
+<!-- <a href="<%new_picture_path %>">New Picture</a> -->
+<%= link_to "New Picture", new_picture_path %>
 
+<%- @pictures.each do |picture| %>
+	<p class = "title"><%=picture.title%></p><p class = "artists"> <%=picture.artist%></p>
+	<%= button_to "Edit", edit_picture_path(picture), :method => :get, :class => "btn" %>
+	<!-- <a href ="<%=picture_path(picture.id)%>"><img src="<%=picture.url%>"></a> -->
+	<!-- <a href = "<%= edit_picture_path(picture) %>"> Edit </a></br> -->
+	<%= link_to picture_path(picture) do %>
+		<img src ="<%= picture.url %>">
+	<% end %>
 <% end %> 
 
 

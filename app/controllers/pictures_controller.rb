@@ -19,12 +19,16 @@ class PicturesController < ApplicationController
 		# @picture.title = params[:title]			# the names of the key are set up in the new.html POST method
 		# @picture.artist = params[:artist]
 		# success = @picture.save		
-		@picture = Picture.create(params[:picture])	# instance of picture created in controller new, the parameters set in new.html.erb
+		@picture = Picture.new(params[:picture])	# instance of picture created in controller new, the parameters set in new.html.erb
+		if @picture.save
+			redirect_to pictures_path 			# pictures_path, this tells you to access the /pictures. alternative is :action => "index"
 
-		# success = Picture.create(params)
-		if success
-			redirect_to :action => "index" 			# pictures_path, this tells you to access the /pictures
+		else  #there was an error on the form
+			flash.now[:error] = "Some fields are blank"
+			render :new	
 		end
+
+
 	end
 
 	def edit
@@ -33,15 +37,29 @@ class PicturesController < ApplicationController
 
 	def update
 		@picture = Picture.find(params[:id])
-		# @picture.admin = true
-		# @picture.update_attributes :admin => true
-		# # params = {:admin => true}
-		# @picture.update_attributes params   	# this would not work because we didn't give attr_accessible
-
-		if @picture.update_attributes(:artist => params[:artist],:title => params[:title], :url => params[:url])
-			redirect_to :action => "show", :id => params[:id]
+		
+		if @picture.update_attributes(params[:picture])
+			redirect_to picture_path@picture.id 			# "/pictures/#{@picture.id}"
+		else
+			#something
 		end
 	end
+end
+
+		# Old Update Method 1:
+			# @picture.admin = true
+			# @picture.update_attributes :admin => true
+			# # params = {:admin => true}
+			# @picture.update_attributes params   	# this would not work because we didn't give attr_accessible
+		# Old Update Method 2:
+			# success = @picture.update_attributes(
+			# 	:artist => params[:artist],
+			# 	:title => params[:title],
+			# 	:url => params[:url]
+			# 	)
+			# if success
+			# 	redirect_to :action => "show", :id => params[:id]
+			# end
 
 	# def load_pictures
 		
@@ -65,5 +83,5 @@ class PicturesController < ApplicationController
 		# 	    ]
 	# end
 
-end	
+
 

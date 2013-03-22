@@ -1,24 +1,23 @@
 <h1> Edit Picture </h1>
 
-<form action ="/pictures/ <%= @picture.id %>" method = "POST">
-
+<%= form_for @picture do |f| %>
 	<p>
 		<lable>Edit Artist</lable><br>
-		<input type = "text" name = "artist" value="<%= @picture.artist %>"/>
+		<%= f.text_field "artist" %>
 	</p>
 
 	<p>
 		<lable>Edit Title</lable><br>
-		<input type = "text" name = "title" value="<%= @picture.title %>"/>
+		<%= f.text_field "title" %>
 	</p>
 
 	<p>
 		<lable>Edit URL</lable><br>
-		<input type = "text" name = "url" value="<%= @picture.url %>"/>
+		<%= f.text_field "url" %>
 	</p>
 
 	<p>
-		<input type = "submit"/>
+		<%= f.submit "Update" %>
 	</p>
 
-</form>
+<%end%>

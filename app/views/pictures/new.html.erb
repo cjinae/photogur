@@ -2,14 +2,17 @@
 <!-- the information here gets sent to the params hash.
 example below is for POST. Here we define names, those will be the key
 and the input from the user will be the value for that key -->
-
-
 <!-- 
 	First Version, plain html
 	 <form action ="/pictures" method = "POST">
 	 -->
 
 <!-- Second Version: form_tag "/pictures" do -->
+
+<div class = "errors">
+	<%= flash[:error] %>
+</div>
+
 
 <%= form_for @picture do |f| %>
 	<p>
@@ -22,12 +25,14 @@ and the input from the user will be the value for that key -->
 		<lable>Title</lable><br>
 		<!-- <input type = "text" name = "title"/> -->
 		<%= f.text_field "title" %>
+		<%= @picture.errors.messages[:title].join("") %>
 	</p>
 
 	<p>
 		<lable>URL</lable><br>
 		<!-- <input type = "text" name = "url"/> -->
 		<%= f.text_field "url" %>
+		<%= @picture.errors.messages[:url].join("") %>
 	</p>
 
 	<p>

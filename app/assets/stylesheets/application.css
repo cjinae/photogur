@@ -11,27 +11,62 @@
  *= require_self
  *= require_tree .
  */
+body {
+	background-image: -ms-linear-gradient(top, #E7F3EF 0%, #73726D 500%);
+	background-image: -moz-linear-gradient(top, #E7F3EF 0%, #73726D 500%);
+	background-image: -o-linear-gradient(top, #E7F3EF 0%, #73726D 500%);
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #E7F3EF), color-stop(5, #73726D));
+	background-image: -webkit-linear-gradient(top, #E7F3EF 0%, #73726D 500%);
+	background-image: linear-gradient(to bottom, #E7F3EF 0%, #73726D 500%);
+}
 
 .container {
 	width: 600px;
+	padding: 30px;
 	margin: auto;
+	background: url('/assets/smooth_wall.png');
 }
 
- img {
+.field_wtih_errors input {
+	border-color: red;
+}
+
+.nav li{
+	list-style-type: none;
+	display: inline;
+	padding: 5px;	
+}
+
+.btn {
+	color:blue;
+}
+
+a {
+	text-decoration: none;
+	font-family: 'Inder', sans-serif;
+	color: #CCC;
+}
+
+img {
  	width: 80%;
  	opacity: 0.8;
  }
 
- img:hover {
+img:hover {
  	opacity: 1;
  	cursor: pointer;
  }
 
 h1 {
-	font-family: serif;
+	font-family: 'Inder', sans-serif;
 }
 
-p {
+p.title {
 	color: gray;
-	font-family: helvetica, sans-serif;
+	font-family: 'Inder', sans-serif;
+}
+
+p.title {
+	color: gray;
+	font-family: 'Inder', sans-serif;
 }
