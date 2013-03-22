@@ -1,1 +1,34 @@
-_form.html.erb
+ <%= form_for @picture do |f| %>
+	<p>
+		<lable>Artist</lable><br>
+		<!-- <input type = "text" name = "artist"/> --> 
+		<%= f.text_field "artist" %>
+	</p>
+
+	<p>
+		<lable>Title</lable><br>
+		<!-- <input type = "text" name = "title"/> -->
+		<%= f.text_field "title" %>
+		<%= @picture.errors.messages[:title].join("") %>
+	</p>
+
+	<p>
+		<lable>URL</lable><br>
+		<!-- <input type = "text" name = "url"/> -->
+		<%= f.text_field "url" %>
+		<%= @picture.errors.messages[:url].join("") %>
+	</p>
+
+	<p>
+		<%= f.check_box "copyrighted" %>
+		<f.lable "copyrighted", "Photo is copyrighted"</lable>
+		
+	</p>
+
+	<p>
+	<!-- 	<input type = "submit"/> -->
+		<%= f.submit "Save" %>
+	</p>
+
+<!-- </form> -->
+<% end%>

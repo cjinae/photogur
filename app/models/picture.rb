@@ -4,15 +4,16 @@ class Picture < ActiveRecord::Base
 # for the Pictures table (which is in the CreatePictures Class)
 
 	# Allow mass-assignment for the attributes titles and artist
-	attr_accessible :title, :artist, :url
+	attr_accessible :title, :artist, :url, :copyrighted
 	# Don't confuse this with attr_accessor!!!
 
 	validates :title, :presence => true
-	validates :url, :presence => true
 	validates :artist, :presence => true
-
-
-
+	validates :url, {
+		:format => {
+			:with => /^https?:/, :message => "Please enter a valid email address"
+		}
+	}
 end
 
 

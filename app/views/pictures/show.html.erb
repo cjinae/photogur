@@ -1,4 +1,13 @@
-<%= params %>             			<!-- params is a hash-->
+<p><%= params %></p>     
+
 <h1><%= @picture[:title] %></h1>
 <p><%= @picture[:artist]%></p>
 <img src="<%= @picture[:url] %>">
+
+<% if @picture.copyrighted %>
+	<p>This picture is copyrighted.</p>
+	
+<%= button_to "Delete", @picture, :method => :delete, :confirm => "Are you sure you want to delete" %>
+
+
+<% end %>
