@@ -14,6 +14,10 @@ class Picture < ActiveRecord::Base
 			:with => /^https?:/, :message => "Please enter a valid email address"
 		}
 	}
+
+	scope :alphabetical, order("title ASC")
+	scope :free, where(:copyrighted => false)
+
 end
 
 

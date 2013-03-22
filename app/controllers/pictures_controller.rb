@@ -2,7 +2,11 @@ class PicturesController < ApplicationController
 	#before_filter :load_pictures #this will occcur before going into teach of the methods
 
 	def index
-		@pictures = Picture.all
+		if params[:free] == "yes"
+			@pictures = Picture.free.alphabetical.all
+		else
+			@pictures = Picture.alphabetical.all     	# this is what
+		end
 	end
 
 	def show

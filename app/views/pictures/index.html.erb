@@ -1,14 +1,19 @@
+<% link_to "Free pictures only", pictures_path(:free => "yes") %>
+
+
 <h1>Photogur</h1>
 
 <!-- <a href="<%new_picture_path %>">New Picture</a> -->
+
+
 <%- @pictures.each do |picture| %>
 	<p class = "title"><%=picture.title%> </p>
 	<p class = "artists"> <%=picture.artist%> </p>
-	<%= button_to "Edit", edit_picture_path(picture), :method => :get %>
+	
 	<!-- <a href ="<%=picture_path(picture.id)%>"><img src="<%=picture.url%>"></a> -->
 	<!-- <a href = "<%= edit_picture_path(picture) %>"> Edit </a></br> -->
 	<%= link_to picture_path(picture) do %>
-		<img src ="<%= picture.url %>">
+	<%= image_tag picture.url %>
 	<% end %>
 <% end %> 
 
